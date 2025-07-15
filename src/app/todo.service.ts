@@ -24,4 +24,11 @@ export class TodoService {
     const todo = this.todos.find(t => t.id === id);
     if (todo) todo.completed = !todo.completed;
   }
+
+   updateTodoTitle(id: number, newTitle: string): void {
+    const todo = this.todos.find(t => t.id === id);
+    if (todo) {
+      todo.title = newTitle;
+    }
+}
 }

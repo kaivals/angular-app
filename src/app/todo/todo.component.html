@@ -9,10 +9,31 @@
   <ul>
     <li *ngFor="let todo of todos">
       <div class="todo-left">
-        <input type="checkbox" [checked]="todo.completed" (change)="toggleTodo(todo.id)" />
-        <span [class.completed]="todo.completed" class="todo-title">{{ todo.title }}</span>
+        <input
+          type="checkbox"
+          [checked]="todo.completed"
+          (change)="toggleTodo(todo.id)"
+        />
+
+        <!-- ✅ Editing mode -->
+        <input *ngIf="todo.isEditing" [(ngModel)]="todo.title" class="edit-input" />
+
+        <!-- ✅ Normal mode -->
+        <span
+          *ngIf="!todo.isEditing"
+          [class.completed]="todo.completed"
+          class="todo-title"
+        >
+          {{ todo.title }}
+        </span>
       </div>
-      <button (click)="deleteTodo(todo.id)">Delete</button>
+
+      <!-- ✅ Buttons -->
+      <div class="todo-actions">
+        <button *ngIf="!todo.isEditing" (click)="editTodo(todo)">Edit</button>
+        <button *ngIf="todo.isEditing" (click)="saveTodo(todo)">Save</button>
+        <button (click)="deleteTodo(todo.id)">Delete</button>
+      </div>
     </li>
   </ul>
 </div>

@@ -79,6 +79,7 @@ export class TodoComponent implements
     if (this.newTodo.trim()) {
       this.todoService.addTodo(this.newTodo.trim());
       this.todos = [...this.todoService.getTodos()];
+       console.log('Updated Todos (add):', this.todos);
       this.newTodo = '';
     }
   }
@@ -86,10 +87,27 @@ export class TodoComponent implements
   deleteTodo(id: number): void {
     this.todoService.deleteTodo(id);
     this.todos = [...this.todoService.getTodos()];
+      console.log('Updated Todos (delete):', this.todos);
+
   }
 
   toggleTodo(id: number): void {
     this.todoService.toggleCompleted(id);
     this.todos = [...this.todoService.getTodos()];
   }
+
+  editTodo(todo: Todo): void {
+  todo.isEditing = true;
+}
+
+saveTodo(todo: Todo): void {
+  if (todo.title.trim()) {
+    todo.title = todo.title.trim();
+    todo.isEditing = false;
+    console.log('Updated Todos (edit):', this.todos);
+  }
+}
+
+
+
 }
