@@ -1,12 +1,18 @@
-<h1>My Todo List</h1>
-<h1>kaival todolist</h1>
-<input [(ngModel)]="newTodo" placeholder="Enter task">
-<button (click)="addTodo()">Add</button>
+<div class="todo-card">
+  <h1>My Todo List</h1>
 
-<ul>
-  <li *ngFor="let todo of todos" [class.completed]="todo.completed">
-    <input type="checkbox" [checked]="todo.completed" (change)="toggleTodo(todo.id)">
-    <span class="todo-title">{{ todo.title }}</span>
-    <button (click)="deleteTodo(todo.id)">Delete</button>
-  </li>
-</ul>
+  <div class="todo-input">
+    <input [(ngModel)]="newTodo" placeholder="Enter a task" />
+    <button (click)="addTodo()">Add</button>
+  </div>
+
+  <ul>
+    <li *ngFor="let todo of todos">
+      <div class="todo-left">
+        <input type="checkbox" [checked]="todo.completed" (change)="toggleTodo(todo.id)" />
+        <span [class.completed]="todo.completed" class="todo-title">{{ todo.title }}</span>
+      </div>
+      <button (click)="deleteTodo(todo.id)">Delete</button>
+    </li>
+  </ul>
+</div>

@@ -1,73 +1,121 @@
+/* Reset styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f1f3f6;
-  padding: 2rem;
+  background: #eef2f5;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Main todo container card */
+.todo-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  transition: transform 0.3s;
+      margin-left: 404px;
+    margin-top: 142px;
+}
+
+.todo-card:hover {
+  transform: scale(1.01);
 }
 
 h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #333;
+  text-align: center;
+  margin-bottom: 25px;
+  color: #2c3e50;
 }
 
-input[type="text"] {
-  padding: 10px;
-  width: 250px;
+/* Input and button layout */
+.todo-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.todo-input input {
+  flex: 1;
+  padding: 12px 14px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 8px;
   font-size: 16px;
 }
 
-button {
-  padding: 10px 15px;
-  margin-left: 8px;
-  font-size: 14px;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
-}
-
-button:hover {
-  opacity: 0.9;
-}
-
-button:nth-of-type(1) {
+.todo-input button {
+  padding: 12px 20px;
   background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
+.todo-input button:hover {
+  background-color: #0056b3;
+}
+
+/* Todo list styling */
 ul {
   list-style-type: none;
   padding: 0;
-  margin-top: 20px;
 }
 
 li {
-  background-color: #fff;
-  margin-bottom: 10px;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: #f8f9fa;
+  padding: 12px 18px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 12px;
+  transition: box-shadow 0.2s;
 }
 
-li .todo-title {
+li:hover {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Checkbox and label alignment */
+.todo-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   flex: 1;
-  margin-left: 10px;
+}
+
+.todo-title {
   font-size: 16px;
+  color: #333;
 }
 
-li.completed .todo-title {
+.completed {
   text-decoration: line-through;
-  color: gray;
+  color: #888;
 }
 
-input[type="checkbox"] {
-  transform: scale(1.2);
-}
-
+/* Delete button */
 li button {
-  background-color: #dc3545;
+  background-color: #e74c3c;
+  border: none;
+  padding: 8px 14px;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+li button:hover {
+  background-color: #c0392b;
 }

@@ -1,5 +1,5 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { TodoComponent } from './app/todo/todo.component';
+import { AppComponent } from './app/app.component';
 
-bootstrapApplication(TodoComponent)
+bootstrapApplication(AppComponent)
   .catch(err => console.error(err));
