@@ -49,16 +49,16 @@ body {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background-color 0.3s;
 }
 
 .todo-input button:hover {
   background-color: #0056b3;
 }
 
-/* Todo items */
+/* Todo list */
 ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
   margin: 0;
 }
@@ -71,7 +71,7 @@ li {
   border-bottom: 1px solid #eee;
 }
 
-/* Left section (checkbox + text/input) */
+/* Left section (checkbox + label/input) */
 .todo-left {
   display: flex;
   align-items: center;
@@ -84,7 +84,7 @@ li {
   color: #333;
 }
 
-/* Strikethrough if completed */
+/* Strikethrough when completed */
 .completed {
   text-decoration: line-through;
   color: #aaa;
@@ -112,5 +112,9 @@ li {
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition
+  transition: background-color 0.2s;
+}
+
+.todo-actions button:hover {
+  background-color: #d0d0d0;
 }
